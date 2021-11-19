@@ -76,6 +76,8 @@
     background: rgba(0,0,0,0.5);
     margin: 20px;
     transition: .5s;
+    overflow: hidden;
+    text-decoration: none;
 }
 
 .unob a:hover {
@@ -84,10 +86,57 @@
     0 0 30px var(--clr),
     0 0 60px var(--clr),
     0 0 100px var(--clr);
-
 }
 
+.unob a::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    background: var(--clr);
+    transition: .5s;
+    animation: botones1 2s linear infinite;
+    animation-delay: calc(0.33 * var(--i));
+}
 
+@keyframes botones1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.unob a:hover::before {
+    width: 100%;
+}
+
+.unob a::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: #0e1538;
+    transition: .5s;
+}
+
+.unob a:hover::after {
+    background: var(--clr);
+}
+
+.unob a span {
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    color: #fff;
+    opacity: .5;
+    letter-spacing: 2px;
+    transition: .5s;
+}
+
+.unob a:hover span {
+    opacity: 1;
+}
 
 
 
